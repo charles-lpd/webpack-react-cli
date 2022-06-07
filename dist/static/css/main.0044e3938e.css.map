@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.0044e3938e.css","mappings":"AAAA;;CAAA,moGAIA,KAEE,WADA,cACA","sources":["webpack://react-cli/./style/index.scss"],"sourcesContent":["@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n.app{\n  font-size: 40px;\n  color: aqua;\n}"],"names":[],"sourceRoot":""}
