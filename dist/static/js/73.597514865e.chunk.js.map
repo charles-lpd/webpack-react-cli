@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/73.597514865e.chunk.js","mappings":"6HAMA,UAJc,WACZ,OAAO","sources":["webpack://react-cli/./src/About/index.tsx"],"sourcesContent":["import React from 'react'\n\nconst About = () => {\n  return <h1>About ~~~</h1>\n}\n\nexport default About\n"],"names":[],"sourceRoot":""}
