@@ -1,31 +1,34 @@
 import React, { lazy, Suspense } from 'react'
 import { Link, Routes, Route } from 'react-router-dom'
-// import Home from './Home'
-// import About from './About'
 import { Button } from 'antd'
-const Home = lazy(() => import('./Home/index'))
-const About = lazy(() => import('./About/index'))
-
+import { Provider } from 'react-redux'
+import { store } from './store/store'
+const Home = lazy(() => import('./pages/home'))
+const About = lazy(() => import('./pages/about'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 const App: React.FC = () => {
   return (
-    <div className="app">
-      app
-      <Button type="primary">按钮</Button>
-      <ul>
-        <li>
-          <Link to="/home">home</Link>
-        </li>
-        <li>
-          <Link to="/about/1">about</Link>
-        </li>
-      </ul>
-      <Suspense fallback={<div>loading....</div>}>
-        <Routes>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/about/:id" element={<About />}></Route>
-        </Routes>
-      </Suspense>
-    </div>
+    <Provider store={store}>
+      <div className="app">
+        app
+        <Button type="primary">按钮</Button>
+        <ul>
+          <li>
+            <Link to="/">home</Link>
+          </li>
+          <li>
+            <Link to="/about/1">about</Link>
+          </li>
+        </ul>
+        <Suspense fallback={<div>loading....</div>}>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/about/:id" element={<About />}></Route>
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </div>
+    </Provider>
   )
 }
 export default App

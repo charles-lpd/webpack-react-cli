@@ -20,7 +20,7 @@ module.exports = {
     }],
     "no-trailing-spaces": 2,
     "no-unused-vars": 0,
-    "react/jsx-max-props-per-line": [1, {
+    "react/jsx-max-props-per-line": [2, {
       "maximum": 3
     }],
   },
