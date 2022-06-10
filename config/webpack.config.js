@@ -63,6 +63,7 @@ module.exports = {
       ? 'static/js/[name].[contenthash:10].chunk.js'
       : 'static/js/[name].chunk.js',
     // asset 处理文件路径
+    publicPath: isProd ? process.env.BASE_URL :  '/',
     assetModuleFilename: 'static/media/[hash:10][ext][query]',
     // 清除上次 dist文件
     clean: isProd,

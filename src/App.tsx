@@ -1,12 +1,27 @@
 import React, { lazy, Suspense } from 'react'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button } from 'antd'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
-const Home = lazy(() => import('./pages/home'))
-const About = lazy(() => import('./pages/about'))
+import { useRoutes } from 'react-router-dom'
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const App: React.FC = () => {
+  const element = useRoutes([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/about/:id',
+      element: <About />
+    },
+    {
+      path: '*',
+      element: <NotFound />
+    }
+  ])
   return (
     <Provider store={store}>
       <div className="app">
@@ -21,11 +36,10 @@ const App: React.FC = () => {
           </li>
         </ul>
         <Suspense fallback={<div>loading....</div>}>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
+          {/* <Route path="/" element={<Home />}></Route>
             <Route path="/about/:id" element={<About />}></Route>
-            <Route path='*' element={<NotFound />} />
-          </Routes>
+            <Route path="*" element={<NotFound />} /> */}
+          {element}
         </Suspense>
       </div>
     </Provider>
